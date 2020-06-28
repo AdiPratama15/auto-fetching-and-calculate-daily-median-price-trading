@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <style>
+        form {
+            margin: 20px;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        #url {
+            display: inline-block;
+            width: 80%;
+        }
+
+        #loader {
+            display: none;
+        }
+
+        pre {
+            margin: 20px;
+            width: 80%;
+            white-space: pre-wrap;
+        }
+    </style>
+    <script>
+        window.onload = main;
+        // var loader, url;
+
+        function main() {
+            // loader = document.getElementById("loader");
+            // url = document.getElementById("url");
+            getContents();
+            setInterval(getContents, 3000);
+        }
+
+        function getContents() {
+            const sourceUrl = 'https://vip.bitcoin.co.id/api/btc_idr/ticker';
+
+            // sourceUrl = url;
+            const corsUrl = 'https://cors-anywhere.herokuapp.com/';
+            const apiUrlContest = corsUrl + sourceUrl;
+            getApi(apiUrlContest, dataRender, 'JSON');
+        }
+
+        /* Fetch whole webpage to data */
+        // type=text for getting text/html. default is to get json
+        function getApi(url, update, type = 'text') {
+            // var myHeaders = new Headers();
+            // var myInit = { method: 'GET',
+            //               headers: myHeaders,
+            //               mode: 'cors',
+            //               cache: 'default' };            
+
+            fetch(url).then(function (response) {
+                if (response.ok) {
+                    return type === 'JSON' ? response.json() : response.text();
+                }
+                throw new Error('Network response was not ok.');
+            }).then(function (data) {
+                update.call(null, data);
+                //   if(final) offLoader(); // turn off spinner loader aftrer loaded all api
+            }).catch(function (error) {
+                console.log('There has been a problem with your fetch operation: ' + error.message);
+            });
+        }
+
+
+        /* process fatched data */
+        function dataRender(data) {
+
+
+            outp = document.getElementById("outp");
+            outp.innerText = "High = " + data.ticker.high + "\n" +
+                "Low = " + data.ticker.low + "\n" +
+                "vol_btc = " + data.ticker.vol_btc + "\n" +
+                "vol_idr = " + data.ticker.vol_idr + "\n" +
+                "last = " + data.ticker.last + "\n" +
+                "buy = " + data.ticker.buy + "\n" +
+                "median = " + ((data.ticker.low + data.ticker.high) / 2) + "\n" +
+                "server_time = " + data.ticker.server_time;
+        }
+
+
+        function fetchContents(el, evt) {
+            evt.preventDefault();
+            if (url.value !== "") {
+                // loader.style.display = "block";
+                getContents(url.value);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!--<form onsubmit="fetchContents(this,event);">-->
+    <!--    <label>Get webpage contents</label>-->
+    <!--    <input type="text" id="url" placeholder="Enter Url" />-->
+    <!--    <input type="submit" value="Get contents" />-->
+    <!--</form>-->
+
+    <div id="loader" style="width:100%; margin-top: 20px;">
+        <h3 style="text-align:center;"><img src="https://s18.postimg.org/dym8aodc9/loading.gif"
+                style="margin-right: 10px;" />Loading...</h3><br />
+    </div>
+
+    <h3>Bitcoin trading price real-time data (bitcoin.co.id)</h3>
+    <pre id="outp"></pre>
+
+
+</body>
+
+</html>
