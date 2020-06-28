@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <form>
+        <input type="number" id="one" placeholder="lowest price">
+        <input type="number" id="two" placeholder="highest price">
+
+        <div class="calculate-button">
+            <input type="button" onclick="average()" value="calculate average">
+        </div>
+        <div class="result">
+            <input type="number" id="avg" placeholder="result">
+        </div>
+        <input type="reset" value="reset">
+    </form>
+
+    <script>
+        function average() {
+            var a = parseInt(document.getElementById("one").value);
+            var b = parseInt(document.getElementById("two").value);
+            var afinal = ((a + b) / 2);
+            document.getElementById('avg').value = afinal;
+        }
+
+        function clear() {
+            document.getElementById('one').value = null;
+            document.getElementById('two').value = null;
+            document.getElementById('avg').value = null;
+        }
+    </script>
+</body>
+
+</html>
