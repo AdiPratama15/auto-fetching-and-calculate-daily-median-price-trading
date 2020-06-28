@@ -8,24 +8,25 @@
 <body>
     <form>
         <div class="input">
-            <input type="number" id="lowest" placeholder="lowest price" autofocus>
-            <input type="number" id="highest" placeholder="highest price">
+            <input type="number" id="highest" placeholder="highest price" autofocus>
+            <input type="number" id="lowest" placeholder="lowest price">
         </div>
         <div class="button">
             <input type="button" onclick="average()" value="calculate median">
         </div>
         <div class="result">
-            <input type="number" id="median" placeholder="result">
+            <input type="text" id="median" placeholder="result">
         </div>
         <input type="reset" class="button" value="reset">
     </form>
 
     <script>
         function average() {
-            var lowest = parseInt(document.getElementById("lowest").value);
             var highest = parseInt(document.getElementById("highest").value);
+            var lowest = parseInt(document.getElementById("lowest").value);
+            
             var median = ((lowest + highest) / 2);
-            document.getElementById('median').value = median;
+            document.getElementById('median').value = median.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
         }
 
         function clear() {

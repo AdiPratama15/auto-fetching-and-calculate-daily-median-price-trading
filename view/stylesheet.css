@@ -1,26 +1,12 @@
 form {
     text-align: center;
-    margin-top: 25%;
+    margin-top: 20%;
 }
 
 .button {
     margin: 10px 0
 }
 
-::-webkit-input-placeholder {
-    text-align: center;
-}
-
-:-moz-placeholder {
-    /* Firefox 18- */
-    text-align: center;
-}
-
-::-moz-placeholder {
-    /* Firefox 19+ */
-    text-align: center;
-}
-
-:-ms-input-placeholder {
+input{
     text-align: center;
 }
