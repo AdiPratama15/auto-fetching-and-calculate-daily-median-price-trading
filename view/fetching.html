@@ -4,6 +4,10 @@
 <head>
     <title>Page Title</title>
     <style>
+        .median {
+            text-align: center;
+            font-size:40px
+        }
         form {
             margin: 20px;
         }
@@ -76,13 +80,16 @@
 
 
             outp = document.getElementById("outp");
+            highest = parseInt(data.ticker.high);
+            lowest = parseInt(data.ticker.low);
+            median = ((lowest + highest) / 2);
+            document.getElementById('median').innerText = median.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
             outp.innerText = "High = " + data.ticker.high + "\n" +
                 "Low = " + data.ticker.low + "\n" +
                 "vol_btc = " + data.ticker.vol_btc + "\n" +
                 "vol_idr = " + data.ticker.vol_idr + "\n" +
                 "last = " + data.ticker.last + "\n" +
                 "buy = " + data.ticker.buy + "\n" +
-                "median = " + ((data.ticker.low + data.ticker.high) / 2) + "\n" +
                 "server_time = " + data.ticker.server_time;
         }
 
@@ -111,7 +118,9 @@
 
     <h3>Bitcoin trading price real-time data (bitcoin.co.id)</h3>
     <pre id="outp"></pre>
-
+    <div class="median">
+        Median: <span id="median"></span>
+    </div>
 
 </body>
 
