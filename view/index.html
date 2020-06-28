@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
-
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
 <body>
     <form>
-        <input type="number" id="one" placeholder="lowest price">
-        <input type="number" id="two" placeholder="highest price">
-
-        <div class="calculate-button">
-            <input type="button" onclick="average()" value="calculate average">
+        <div class="input">
+            <input type="number" id="one" placeholder="lowest price" autofocus>
+            <input type="number" id="two" placeholder="highest price">
+        </div>
+        <div class="button">
+            <input type="button" onclick="average()" value="calculate median">
         </div>
         <div class="result">
             <input type="number" id="avg" placeholder="result">
         </div>
-        <input type="reset" value="reset">
+        <input type="reset" class="button" value="reset">
     </form>
 
     <script>
