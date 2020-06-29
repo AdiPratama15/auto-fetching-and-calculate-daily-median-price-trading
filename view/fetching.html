@@ -6,8 +6,9 @@
     <style>
         .median {
             text-align: center;
-            font-size:40px
+            font-size: 40px
         }
+
         form {
             margin: 20px;
         }
@@ -31,6 +32,12 @@
             width: 80%;
             white-space: pre-wrap;
         }
+
+        img {
+            background-color: transparent;
+            border-color: transparent;
+            height: 30px;
+        }
     </style>
     <script>
         window.onload = main;
@@ -40,7 +47,7 @@
             // loader = document.getElementById("loader");
             // url = document.getElementById("url");
             getContents();
-            setInterval(getContents, 3000);
+            setInterval(getContents, 4000);
         }
 
         function getContents() {
@@ -74,16 +81,16 @@
             });
         }
 
-
         /* process fatched data */
         function dataRender(data) {
-
-
             outp = document.getElementById("outp");
             highest = parseInt(data.ticker.high);
             lowest = parseInt(data.ticker.low);
             median = ((lowest + highest) / 2);
-            document.getElementById('median').innerText = median.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+            document.getElementById('median').innerText = median.toLocaleString('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            });
             outp.innerText = "High = " + data.ticker.high + "\n" +
                 "Low = " + data.ticker.low + "\n" +
                 "vol_btc = " + data.ticker.vol_btc + "\n" +
@@ -100,6 +107,13 @@
                 // loader.style.display = "block";
                 getContents(url.value);
             }
+        }
+
+        function copyTextToClipboard() {
+            var copyText = document.getElementById("lowest");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999)
+            document.execCommand("copy");
         }
     </script>
 </head>
@@ -121,6 +135,10 @@
     <div class="median">
         Median: <span id="median"></span>
     </div>
+    <input type="text" value=131502000 id="lowest">
+    <button onclick="copyTextToClipboard()">
+        <img src="https://image.flaticon.com/icons/svg/14/14896.svg">
+    </button>
 
 </body>
 
