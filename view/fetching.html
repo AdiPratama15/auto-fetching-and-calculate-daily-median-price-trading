@@ -4,7 +4,7 @@
 <head>
     <title>Page Title</title>
     <style>
-        .median {
+        .median, .idr-btc-ratio {
             text-align: center;
             font-size: 40px
         }
@@ -84,13 +84,7 @@
         /* process fatched data */
         function dataRender(data) {
             outp = document.getElementById("outp");
-            highest = parseInt(data.ticker.high);
-            lowest = parseInt(data.ticker.low);
-            median = ((lowest + highest) / 2);
-            document.getElementById('median').innerText = median.toLocaleString('id-ID', {
-                style: 'currency',
-                currency: 'IDR'
-            });
+
             outp.innerText = "High = " + data.ticker.high + "\n" +
                 "Low = " + data.ticker.low + "\n" +
                 "vol_btc = " + data.ticker.vol_btc + "\n" +
@@ -98,6 +92,23 @@
                 "last = " + data.ticker.last + "\n" +
                 "buy = " + data.ticker.buy + "\n" +
                 "server_time = " + data.ticker.server_time;
+
+            highest = parseInt(data.ticker.high);
+            lowest = parseInt(data.ticker.low);
+            median = ((lowest + highest) / 2);
+            document.getElementById('median').innerText = median.toLocaleString('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            });
+
+            idr = parseInt(data.ticker.vol_idr);
+            btc = parseInt(data.ticker.vol_btc);
+            
+            ratio = idr/ btc;
+            document.getElementById('idr-btc-ratio').innerText = ratio.toLocaleString('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            });
         }
 
 
@@ -134,6 +145,9 @@
     <pre id="outp"></pre>
     <div class="median">
         Median: <span id="median"></span>
+    </div>
+    <div class="idr-btc-ratio">
+        idr-btc ratio: <span id="idr-btc-ratio"></span>
     </div>
     <input type="text" value=131502000 id="lowest">
     <button onclick="copyTextToClipboard()">
