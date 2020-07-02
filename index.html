@@ -40,7 +40,7 @@
                 throw new Error('Network response was not ok.');
             }).then(function (data) {
                 update.call(null, data);
-                //   if(final) offLoader(); // turn off spinner loader aftrer loaded all api
+                //   if(final) offLoader(); // turn off spinner loader after loaded all API
             }).catch(function (error) {
                 console.log('There has been a problem with your fetch operation: ' + error.message);
             });
@@ -68,8 +68,8 @@
 
             idr = parseInt(data.ticker.vol_idr);
             btc = parseInt(data.ticker.vol_btc);
-            
-            ratio = idr/ btc;
+
+            ratio = idr / btc;
             document.getElementById('idr-btc-ratio').innerText = ratio.toLocaleString('id-ID', {
                 style: 'currency',
                 currency: 'IDR'
@@ -100,7 +100,7 @@
     <!--    <input type="text" id="url" placeholder="Enter Url" />-->
     <!--    <input type="submit" value="Get contents" />-->
     <!--</form>-->
-
+    <a href="/view/manual-input.html">manual-input</a>
     <div id="loader" style="width:100%; margin-top: 20px;">
         <h3 style="text-align:center;"><img src="https://s18.postimg.org/dym8aodc9/loading.gif"
                 style="margin-right: 10px;" />Loading...</h3><br />
