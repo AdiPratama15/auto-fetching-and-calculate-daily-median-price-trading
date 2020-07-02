@@ -1,0 +1,34 @@
+.median, .idr-btc-ratio {
+    text-align: center;
+    font-size: 40px
+}
+
+form {
+    margin: 20px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+#url {
+    display: inline-block;
+    width: 80%;
+}
+
+#loader {
+    display: none;
+}
+
+pre {
+    margin: 20px;
+    width: 80%;
+    white-space: pre-wrap;
+}
+
+img {
+    background-color: transparent;
+    border-color: transparent;
+    height: 30px;
+}
