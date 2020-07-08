@@ -67,6 +67,10 @@ function dataRender(data) {
         style: 'currency',
         currency: 'IDR'
     });
+
+    buy = (Math.floor(median/100000)-1)*100000;
+
+    document.getElementById('buy').value = buy;
 }
 
 
@@ -79,7 +83,7 @@ function fetchContents(el, evt) {
 }
 
 function copyTextToClipboard() {
-    var copyText = document.getElementById("lowest");
+    var copyText = document.getElementById("buy");
     copyText.select();
     copyText.setSelectionRange(0, 99999)
     document.execCommand("copy");
