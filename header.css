@@ -6,6 +6,7 @@ header {
     background-color: skyblue;
     font-weight: bold;
     padding: 15px 15px;
+    border-bottom: 2px solid blueviolet;
 }
 
 a {
