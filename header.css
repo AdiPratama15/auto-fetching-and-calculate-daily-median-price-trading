@@ -1,0 +1,15 @@
+body {
+    margin: auto
+}
+
+header {
+    background-color: skyblue;
+    font-weight: bold;
+    padding: 15px 15px;
+}
+
+a {
+    margin-right: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
