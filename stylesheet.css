@@ -1,7 +1,11 @@
 .median, .idr-btc-ratio {
     text-align: center;
-    color:skyblue;
+    color: blueviolet;
     font-size: 40px
+}
+
+#median, #idr-btc-ratio {
+    color:black;
 }
 
 form {
