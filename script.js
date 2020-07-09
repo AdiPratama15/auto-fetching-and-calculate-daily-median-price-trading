@@ -49,7 +49,7 @@ function dataRender(data) {
         "vol_idr = " + data.ticker.vol_idr + "\n" +
         "last = " + data.ticker.last + "\n" +
         "buy = " + data.ticker.buy + "\n" +
-        "server_time (unix epoch time format) = " + data.ticker.server_time;
+        "server_time (unix epoch time standard format) = " + data.ticker.server_time;
 
     highest = parseInt(data.ticker.high);
     lowest = parseInt(data.ticker.low);
