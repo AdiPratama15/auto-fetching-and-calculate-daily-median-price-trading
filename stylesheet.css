@@ -1,43 +1,35 @@
-.median, .idr-btc-ratio {
+.idr-btc-ratio,
+.median {
     text-align: center;
-    color: blueviolet;
+    color: #8a2be2;
     font-size: 40px
 }
 
-#median, #idr-btc-ratio {
-    color:black;
-}
-
-label {
-    display: inline-block;
-    margin-bottom: 10px;
-}
-
-#url {
-    display: inline-block;
-    width: 80%;
+#idr-btc-ratio,
+#median {
+    color: #000
 }
 
 #loader {
-    display: none;
+    display: none
 }
 
 pre {
     margin: 20px;
     width: 80%;
-    white-space: pre-wrap;
+    white-space: pre-wrap
 }
 
 img {
     background-color: transparent;
     border-color: transparent;
-    height: 30px;
+    height: 30px
 }
 
 input {
-    text-align: center;
+    text-align: center
 }
 
-.buy-suggestion{
-    text-align: center;
+.buy-suggestion {
+    text-align: center
 }
