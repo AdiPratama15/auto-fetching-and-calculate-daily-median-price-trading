@@ -25,12 +25,7 @@ function getContents() {
 /* Fetch whole webpage to data */
 // type=text for getting text/html. default is to get json
 function getApi(url, update, type = 'text') {
-    // var myHeaders = new Headers();
-    // var myInit = { method: 'GET',
-    //               headers: myHeaders,
-    //               mode: 'cors',
-    //               cache: 'default' };            
-
+    
     fetch(url).then(function (response) {
         if (response.ok) {
             return type === 'JSON' ? response.json() : response.text();
