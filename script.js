@@ -39,7 +39,7 @@ function getApi(url, update, type = 'text') {
     });
 }
 
-/* process fatched data */
+/* process fetched data */
 function dataRender(data) {
     outp = document.getElementById("outp");
 
