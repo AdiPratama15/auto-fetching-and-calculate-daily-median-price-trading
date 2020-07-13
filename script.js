@@ -10,6 +10,11 @@ function main() {
 
 function getContents() {
     const sourceUrl = 'https://vip.bitcoin.co.id/api/btc_idr/ticker';
+    /*
+    alternative,
+    but can't be used right now:
+    https://indodax.com/api/btc_idr/ticker
+    */
 
     // sourceUrl = url;
     const corsUrl = 'https://cors-anywhere.herokuapp.com/';
