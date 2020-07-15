@@ -1,13 +1,8 @@
-.idr-btc-ratio,
-.median {
-    text-align: center;
+.indicator {
     color: #8a2be2;
-    font-size: 40px
 }
-
-#idr-btc-ratio,
-#median {
-    color: #000
+tbody{
+    font-size: 40px
 }
 
 #loader {
